@@ -34,7 +34,7 @@ class R2A2(IR2A):
         # verificar valores de Po, k, mi
         Po = 0.2
         k = 21 
-        mi = 0.5
+        mi = 0.29
 
         if self.estimated_throughput:
             if len(self.estimated_throughput) < 3:
@@ -52,7 +52,7 @@ class R2A2(IR2A):
 
             # Rc(i) = (1 - mi).Te(i)
             bitrate_constraint = (1 - mi) * self.estimated_throughput[-1]
-
+            sel_qi = self.qi[0]
             for i in self.qi:
                 if bitrate_constraint > i:
                     sel_qi = i
